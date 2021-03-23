@@ -2,17 +2,21 @@ START=sstate
 sstate:
     "   -> inner
     *   -> BAD
+
 inner:
     \\   -> backslash
     "   -> GOOD
     \n  -> BAD
     *   -> inner
+
 backslash:
     \\   -> inner
     "   -> inner
     n   -> inner
     *   -> BAD
+
 BAD:
     *   -> BAD
+
 GOOD(OK):
     \n  -> GOOD
