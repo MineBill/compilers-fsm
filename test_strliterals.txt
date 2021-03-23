@@ -1,0 +1,7 @@
+This test cannot work due to the limitations of the testing tool
+%%PASS%%
+""
+"Test"
+"Mark said, \"Boo!\"\n"
+%%FAIL%%
+"Ni\ck is good"

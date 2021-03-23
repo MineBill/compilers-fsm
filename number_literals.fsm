@@ -1,0 +1,51 @@
+START=sstate
+sstate:
+    1-9 -> decimal_float_power
+    0   -> hex_oct_float
+    *   -> BAD
+
+decimal_float_power:
+    0-9 -> decimal_float_power
+    .   -> float
+    e E -> power
+    \n  -> GOOD
+    *   -> BAD
+
+decimal:
+    0-9   -> decimal
+    \n    -> GOOD
+    *     -> BAD
+    
+hex_oct_float:
+    x X -> hex
+    0-7 -> oct
+    .   -> float
+    e E -> power
+    \n  -> GOOD
+    *   -> BAD
+
+hex:
+    0-9 A-F -> hex
+    \n  -> GOOD
+    *   -> BAD
+
+oct:
+    0-7 -> oct
+    \n  -> GOOD
+    *   -> BAD
+
+float:
+    0-9 -> float
+    e E -> power
+    \n  -> GOOD
+    *   -> BAD
+
+power:
+    0-9 -> decimal
+    -   -> decimal
+    \n  -> GOOD
+    *   -> BAD
+
+BAD:
+    *   -> BAD
+GOOD(OK):
