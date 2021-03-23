@@ -1,0 +1,27 @@
+START=sstart
+sstart:
+    /   -> comment
+    *   -> BAD
+
+comment:
+    /   -> singleline
+    \*  -> multiline
+    *   -> BAD
+
+singleline:
+    \n  -> GOOD
+    *   -> singleline
+
+multiline:
+    \*  -> multiline_end
+    *   -> multiline
+
+multiline_end:
+    /   -> GOOD
+    *   -> multiline
+
+BAD:
+    *   -> BAD
+
+GOOD(OK):
+    \n  -> GOOD
