@@ -17,11 +17,15 @@ decimal:
     *     -> BAD
     
 hex_oct_float:
-    x X -> hex
+    x X -> hex_first
     0-7 -> oct
-    .   -> float
+    .   -> float_first
     e E -> power
     \n  -> GOOD
+    *   -> BAD
+    
+hex_first:
+    0-9 A-F -> hex
     *   -> BAD
 
 hex:
@@ -32,6 +36,11 @@ hex:
 oct:
     0-7 -> oct
     \n  -> GOOD
+    *   -> BAD
+    
+float_first:
+    0-9 -> float
+    e E -> power
     *   -> BAD
 
 float:
