@@ -6,7 +6,7 @@ sstate:
 
 decimal_float_power:
     0-9 -> decimal_float_power
-    .   -> float
+    .   -> float_first
     e E -> power
     \n  -> GOOD
     *   -> BAD
