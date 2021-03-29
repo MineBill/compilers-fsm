@@ -57,3 +57,5 @@ power:
 BAD:
     *   -> BAD
 GOOD(OK):
+    EOF -> GOOD
+    *   -> BAD

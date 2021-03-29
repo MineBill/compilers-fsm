@@ -20,3 +20,5 @@ BAD:
 
 GOOD(OK):
     \n  -> GOOD
+    EOF -> GOOD
+    *   -> BAD

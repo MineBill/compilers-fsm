@@ -1,7 +1,6 @@
 START=sstart
 sstart:
     a-z A-Z _ -> inner
-    \n        -> GOOD
     *         -> BAD
 
 inner:
@@ -13,4 +12,5 @@ BAD:
     * -> BAD
 
 GOOD(OK):
-
+    EOF -> GOOD
+    *   -> BAD
